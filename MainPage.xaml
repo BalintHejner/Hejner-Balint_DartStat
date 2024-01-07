@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Hejner_Balint_DartStat.MainPage"
+             Shell.NavBarIsVisible="False"
+             >
+
+    <VerticalStackLayout BackgroundColor="#2D8346">
+        <StackLayout>
+            <Grid ColumnDefinitions="*,*" RowDefinitions="*,*">
+                <Image Source="logo.png" MaximumHeightRequest="150" MaximumWidthRequest="150" Grid.RowSpan="2"/>
+                <Label Text="2024 " FontSize="28" LineBreakMode="TailTruncation" Grid.Column="1" />
+                <!--linebreak-->
+                <Label Text="Paddy Power World Darts Championship" FontSize="28" LineBreakMode="WordWrap" Grid.Column="1" Grid.Row="1"/>
+            </Grid>
+            <StackLayout>
+                <ImageButton Source="music.svg" Clicked="ImageButtonMusic_Clicked"/>
+                <ImageButton Source="trophy.svg" Clicked="ImageButtonList_Clicked"/>
+            </StackLayout>
+            <Image Source="dartboard.png" MaximumHeightRequest="200" MaximumWidthRequest="200"/>
+            <Label Text="Please choose a gamemode:" FontSize="20" Margin="0,8,0,0"/>
+            <StackLayout Orientation="Horizontal" VerticalOptions="Center">
+                <Button Text="301" MaximumHeightRequest="70" Margin="5" BackgroundColor="Transparent" BorderWidth="2" Clicked="Button_Clicked" MinimumWidthRequest="185"/>
+                <Button Text="501" MaximumHeightRequest="70" Margin="5" BackgroundColor="Transparent" BorderWidth="2" Clicked="Button_Clicked" MinimumWidthRequest="185"/>
+            </StackLayout>
+            <Image Source="champion.png" VerticalOptions="CenterAndExpand" />
+            <!--<Label TextColor="Black" HorizontalOptions="Fill" Margin="0" FontSize="10" HorizontalTextAlignment="Center" Text="Luke Humphries, the 2024 World Champion" FontAttributes="Italic"/>-->
+        </StackLayout>
+    </VerticalStackLayout>
+
+</ContentPage>

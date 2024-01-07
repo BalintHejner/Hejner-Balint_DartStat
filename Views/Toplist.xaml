@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:dtg="clr-namespace:Syncfusion.Maui.DataGrid;assembly=Syncfusion.Maui.DataGrid"
+             xmlns:view="clr-namespace:Hejner_Balint_DartStat.Viewmodels"
+             x:Class="Hejner_Balint_DartStat.Views.Toplist"
+             Title="Toplist"
+             BackgroundColor="#2D8346"
+             Shell.NavBarIsVisible="False"
+             Shell.TabBarIsVisible="True">
+
+    <ContentPage.BindingContext>
+        <view:TopListViewModel x:Name="viewmodel"/>
+    </ContentPage.BindingContext>
+    
+    <VerticalStackLayout>
+        <!--<TableView Intent="Data">
+            <TableRoot>
+                <TableSection Title="Points">
+                    <TextCell Text="{}"/>
+                </TableSection>
+                <TableSection Title="Number of leg">
+                    <TextCell Text="{}"/>
+                </TableSection>
+                <TableSection Title="Thrown Arrows">
+                    <TextCell Text="{}"/>
+                </TableSection>
+                <TableSection Title="Highest throw">
+                    <TextCell Text="{}"/>
+                </TableSection>
+                <TableSection Title="Average score">
+                    <TextCell Text="{}"/>
+                </TableSection>
+            </TableRoot>
+        </TableView>-->
+        
+        <!--Datagrid megoldás-->
+        <dtg:SfDataGrid x:Name="dataGrid" ItemsSource="{Binding ToplistCollection}" ColumnWidthMode="Fill" VerticalScrollBarVisibility="Default" AllowEditing="False" AutoGenerateColumnsMode="None" SortingMode="Single" SortingGestureType="Tap"> 
+            <dtg:SfDataGrid.Columns>
+                <dtg:DataGridNumericColumn HeaderText="Points" MappingName="Points"/>
+                <dtg:DataGridNumericColumn HeaderText="Number of Leg" MappingName="Number of Leg"/>
+                <dtg:DataGridNumericColumn HeaderText="Thrown Arrows" MappingName="Thrown Arrows"/>
+                <dtg:DataGridNumericColumn HeaderText="Highest score" MappingName="Highest score"/>
+                <dtg:DataGridNumericColumn HeaderText="Average score" MappingName="Average score"/>
+            </dtg:SfDataGrid.Columns>
+        </dtg:SfDataGrid>
+
+        <!--https://help.syncfusion.com/maui/datagrid/getting-started?cs-save-lang=1&cs-lang=xaml#create-datamodel-for-the-sfdatagrid-->
+
+    </VerticalStackLayout>
+</ContentPage>

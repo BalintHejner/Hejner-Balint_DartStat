@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:viewmodel="clr-namespace:Hejner_Balint_DartStat.Viewmodels"
+             x:Class="Hejner_Balint_DartStat.Views.GameMenu"
+             Title="GameMenu"
+             BackgroundColor="#555"
+             Shell.NavBarIsVisible="False"
+             Shell.TabBarIsVisible="False">
+
+    <Grid RowDefinitions="*,*,*,*">
+        <Label Text="Practicing with {} legs" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" Margin="5" FontSize="16"/>
+        <Label Text="{}" Grid.Row="1" FontSize="50" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" Margin="10" TextColor="White"/>
+        <Label Text="{}" Grid.Row="2" Margin="0" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" FontSize="16" TextColor="#AFE391"/>
+        
+
+        <StackLayout Padding="20" Spacing="20" Grid.Row="3">
+            <Entry x:Name="displayEntry"
+                   Placeholder="0"
+                   IsReadOnly="True"
+                   HorizontalOptions="FillAndExpand"
+                   VerticalOptions="CenterAndExpand"
+                   FontSize="24"
+                   HorizontalTextAlignment="End"/>
+
+            <Grid RowDefinitions="*,*,*,*" ColumnDefinitions="*,*,*">
+                <Button Text="1" FontSize="24" Grid.Row="0" Grid.Column="0" Command="{Binding AppendDigitCommand}" CommandParameter="1"/>
+                <Button Text="2" FontSize="24" Grid.Row="0" Grid.Column="1" Command="{Binding AppendDigitCommand}" CommandParameter="2"/>
+                <Button Text="3" FontSize="24" Grid.Row="0" Grid.Column="2" Command="{Binding AppendDigitCommand}" CommandParameter="3"/>
+
+                <Button Text="4" FontSize="24" Grid.Row="1" Grid.Column="0" Command="{Binding AppendDigitCommand}" CommandParameter="4"/>
+                <Button Text="5" FontSize="24" Grid.Row="1" Grid.Column="1" Command="{Binding AppendDigitCommand}" CommandParameter="5"/>
+                <Button Text="6" FontSize="24" Grid.Row="1" Grid.Column="2" Command="{Binding AppendDigitCommand}" CommandParameter="6"/>
+
+                <Button Text="7" FontSize="24" Grid.Row="2" Grid.Column="0" Command="{Binding AppendDigitCommand}" CommandParameter="7"/>
+                <Button Text="8" FontSize="24" Grid.Row="2" Grid.Column="1" Command="{Binding AppendDigitCommand}" CommandParameter="8"/>
+                <Button Text="9" FontSize="24" Grid.Row="2" Grid.Column="2" Command="{Binding AppendDigitCommand}" CommandParameter="9"/>
+
+                <Button Text="0" FontSize="24" Grid.Row="3" Grid.Column="1" Command="{Binding AppendDigitCommand}" CommandParameter="0"/>
+                <Button Text="C" FontSize="24" Grid.Row="3" Grid.Column="2" Command="{Binding ClearDisplayCommand}"/>
+            </Grid>
+        </StackLayout>
+    </Grid>
+</ContentPage>

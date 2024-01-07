@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Hejner_Balint_DartStat.Views.Statistics"
+             Title="Statistics"
+             BackgroundColor="#2D8346"
+             Shell.NavBarIsVisible="False"
+             Shell.TabBarIsVisible="False">
+    <VerticalStackLayout>
+        <TableView Intent="Data">
+            <TableRoot>
+                <TableSection Title="Points">
+                    <TextCell Text="{}"/>
+                </TableSection>
+                <TableSection Title="Number of leg">
+                    <TextCell Text="{}"/>
+                </TableSection>
+                <TableSection Title="Thrown Arrows">
+                    <TextCell Text="{}"/>
+                </TableSection>
+                <TableSection Title="Highest throw">
+                    <TextCell Text="{}"/>
+                </TableSection>
+                <TableSection Title="Average score">
+                    <TextCell Text="{}"/>
+                </TableSection>
+            </TableRoot>
+        </TableView>
+    </VerticalStackLayout>
+</ContentPage>

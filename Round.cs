@@ -11,17 +11,20 @@ namespace Hejner_Balint_DartStat
     public class Round
     {
         [PrimaryKey] [AutoIncrement] public int ID { get; set; }
-        [AutoIncrement] [Required] public int RoundNumber { get; set; }
+        [AutoIncrement] [Required] public int LegNumber { get; set; }
         [Required] public int DartsThrown { get; set; }
         [Required] public int Score { get; set; }
         [Required] public int RemainingScore { get; set; }
+        [Required] public int AverageScore { get; set; }
 
-        public Round(int roundNumber, int dartsThrown, int score, int remainingScore)
+
+        public Round(int legNumber, int dartsThrown, int score, int remainingScore, int averageScore)
         {
-            RoundNumber = roundNumber;
+            LegNumber = legNumber;
             DartsThrown = dartsThrown;
             Score = score;
             RemainingScore = remainingScore;
+            AverageScore = averageScore;
         }
 
         public Round()

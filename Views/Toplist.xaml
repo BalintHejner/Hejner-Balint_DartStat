@@ -37,11 +37,11 @@
         <!--Datagrid megoldás-->
         <dtg:SfDataGrid x:Name="dataGrid" ItemsSource="{Binding ToplistCollection}" ColumnWidthMode="Fill" VerticalScrollBarVisibility="Default" AllowEditing="False" AutoGenerateColumnsMode="None" SortingMode="Single" SortingGestureType="Tap"> 
             <dtg:SfDataGrid.Columns>
-                <dtg:DataGridNumericColumn HeaderText="Points" MappingName="Points"/>
-                <dtg:DataGridNumericColumn HeaderText="Number of Leg" MappingName="Number of Leg"/>
-                <dtg:DataGridNumericColumn HeaderText="Thrown Arrows" MappingName="Thrown Arrows"/>
-                <dtg:DataGridNumericColumn HeaderText="Highest score" MappingName="Highest score"/>
-                <dtg:DataGridNumericColumn HeaderText="Average score" MappingName="Average score"/>
+                <dtg:DataGridNumericColumn HeaderText="Pts" Width="77" MappingName="Points" HeaderTextAlignment="Center"/>
+                <dtg:DataGridNumericColumn HeaderText="Leg" Width="67" MappingName="Number of Leg" HeaderTextAlignment="Center"/>
+                <dtg:DataGridNumericColumn HeaderText="Arrows" Width="110" MappingName="Thrown Arrows" HeaderTextAlignment="Center"/>
+                <dtg:DataGridNumericColumn HeaderText="Max" Width="90" MappingName="Highest score" HeaderTextAlignment="Center"/>
+                <dtg:DataGridNumericColumn HeaderText="Avg" Width="90" MappingName="Avg" HeaderTextAlignment="Center"/>
             </dtg:SfDataGrid.Columns>
         </dtg:SfDataGrid>
 

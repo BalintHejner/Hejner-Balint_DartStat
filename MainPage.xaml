@@ -1,27 +1,31 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="Hejner_Balint_DartStat.MainPage"
+             xmlns:viewmodel="clr-namespace:Hejner_Balint_DartStat.Viewmodels"
+             x:Class="Hejner_Balint_DartStat.MainPage"        
              Shell.NavBarIsVisible="False"
              >
 
+    <ContentPage.BindingContext>
+        <viewmodel:MainPageViewModel/>
+    </ContentPage.BindingContext>
+    
     <VerticalStackLayout BackgroundColor="#2D8346">
         <StackLayout>
             <Grid ColumnDefinitions="*,*" RowDefinitions="*,*">
-                <Image Source="logo.png" MaximumHeightRequest="150" MaximumWidthRequest="150" Grid.RowSpan="2"/>
-                <Label Text="2024 " FontSize="28" LineBreakMode="TailTruncation" Grid.Column="1" />
-                <!--linebreak-->
-                <Label Text="Paddy Power World Darts Championship" FontSize="28" LineBreakMode="WordWrap" Grid.Column="1" Grid.Row="1"/>
+                <!--<Image Source="logo.png" MaximumHeightRequest="200" MaximumWidthRequest="200" Grid.RowSpan="2"/>-->
+                <Label Text="2024" FontSize="52" LineBreakMode="TailTruncation" Grid.ColumnSpan="2" Padding="0" VerticalTextAlignment="Center" HorizontalTextAlignment="Center" TextColor="White" FontAttributes="Bold"/>
+                <Label Text="Paddy Power World Darts Championship" FontSize="24" LineBreakMode="WordWrap" Grid.ColumnSpan="2" Grid.Row="1" VerticalTextAlignment="Center" HorizontalTextAlignment="Center" TextColor="White"/>
             </Grid>
-            <StackLayout>
-                <ImageButton Source="music.svg" Clicked="ImageButtonMusic_Clicked"/>
-                <ImageButton Source="trophy.svg" Clicked="ImageButtonList_Clicked"/>
+            <StackLayout Orientation="Horizontal" VerticalOptions="Center" HorizontalOptions="Center" Margin="20">
+                <ImageButton Source="music.svg" x:Name="imgBtnMsc" Clicked="ImageButtonMusic_Clicked" Margin="20"/>
+                <Image Source="dartboard.png" MaximumHeightRequest="175" MaximumWidthRequest="175"/>
+                <ImageButton Source="trophy.svg" Clicked="ImageButtonList_Clicked" Margin="20"/>
             </StackLayout>
-            <Image Source="dartboard.png" MaximumHeightRequest="200" MaximumWidthRequest="200"/>
-            <Label Text="Please choose a gamemode:" FontSize="20" Margin="0,8,0,0"/>
+            <Label Text="Please choose a gamemode:" TextColor="White" FontSize="20" Margin="0,8,0,0"/>
             <StackLayout Orientation="Horizontal" VerticalOptions="Center">
-                <Button Text="301" MaximumHeightRequest="70" Margin="5" BackgroundColor="Transparent" BorderWidth="2" Clicked="Button_Clicked" MinimumWidthRequest="185"/>
-                <Button Text="501" MaximumHeightRequest="70" Margin="5" BackgroundColor="Transparent" BorderWidth="2" Clicked="Button_Clicked" MinimumWidthRequest="185"/>
+                <Button Text="301" Command="{Binding NavigateToGameModeCommand}" MaximumHeightRequest="70" Margin="5" FontSize="18" BackgroundColor="Transparent" BorderWidth="2" Clicked="Button_Clicked" MinimumWidthRequest="185"/>
+                <Button Text="501" Command="{Binding NavigateToGameModeCommand}" MaximumHeightRequest="70" Margin="5" FontSize="18" BackgroundColor="Transparent" BorderWidth="2" Clicked="Button_Clicked" MinimumWidthRequest="185"/>
             </StackLayout>
             <Image Source="champion.png" VerticalOptions="CenterAndExpand" />
             <!--<Label TextColor="Black" HorizontalOptions="Fill" Margin="0" FontSize="10" HorizontalTextAlignment="Center" Text="Luke Humphries, the 2024 World Champion" FontAttributes="Italic"/>-->

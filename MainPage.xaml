@@ -4,11 +4,8 @@
              xmlns:viewmodel="clr-namespace:Hejner_Balint_DartStat.Viewmodels"
              x:Class="Hejner_Balint_DartStat.MainPage"        
              Shell.NavBarIsVisible="False"
+             Shell.TabBarIsVisible="False"
              >
-
-    <ContentPage.BindingContext>
-        <viewmodel:MainPageViewModel/>
-    </ContentPage.BindingContext>
     
     <VerticalStackLayout BackgroundColor="#2D8346">
         <StackLayout>
@@ -24,8 +21,8 @@
             </StackLayout>
             <Label Text="Please choose a gamemode:" TextColor="White" FontSize="20" Margin="0,8,0,0"/>
             <StackLayout Orientation="Horizontal" VerticalOptions="Center">
-                <Button Text="301" Command="{Binding NavigateToGameModeCommand}" MaximumHeightRequest="70" Margin="5" FontSize="18" BackgroundColor="Transparent" BorderWidth="2" Clicked="Button_Clicked" MinimumWidthRequest="185"/>
-                <Button Text="501" Command="{Binding NavigateToGameModeCommand}" MaximumHeightRequest="70" Margin="5" FontSize="18" BackgroundColor="Transparent" BorderWidth="2" Clicked="Button_Clicked" MinimumWidthRequest="185"/>
+                <Button Text="301" MaximumHeightRequest="70" Margin="5" FontSize="18" BackgroundColor="Transparent" BorderWidth="2" Clicked="Button_Clicked" MinimumWidthRequest="185"/>
+                <Button Text="501"  MaximumHeightRequest="70" Margin="5" FontSize="18" BackgroundColor="Transparent" BorderWidth="2" Clicked="Button_Clicked" MinimumWidthRequest="185"/>
             </StackLayout>
             <Image Source="champion.png" VerticalOptions="CenterAndExpand" />
             <!--<Label TextColor="Black" HorizontalOptions="Fill" Margin="0" FontSize="10" HorizontalTextAlignment="Center" Text="Luke Humphries, the 2024 World Champion" FontAttributes="Italic"/>-->

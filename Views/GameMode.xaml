@@ -8,14 +8,14 @@
              Shell.NavBarIsVisible="False"
              BackgroundColor="#2D8346">
 
-    <ContentPage.BindingContext>
-        <viewmodel:GameModeViewModel/>
-    </ContentPage.BindingContext>
+    
     
     <HorizontalStackLayout VerticalOptions="Center">
         <Label Text="Choose the number of legs you want to play!"/>
         <StackLayout VerticalOptions="Center">
-            <cbx:SfComboBox x:Name="comboBox" ItemsSource="{Binding Legs}" WidthRequest="30" TextColor="White" BackgroundColor="#525050" DropDownIconColor="#AF35AE" DisplayMemberPath="Legs" TextMemberPath="Legs" IsEditable="False"/>
+            <cbx:SfComboBox x:Name="comboBox" SelectedItem="{Binding LegNumber, Mode=TwoWay}" ItemsSource="{Binding Legs, Mode=TwoWay}" WidthRequest="30" TextColor="White" BackgroundColor="#525050" DropDownIconColor="#AF35AE" DisplayMemberPath="Legs" TextMemberPath="Legs" IsEditable="False"/>
+            
         </StackLayout>
     </HorizontalStackLayout>
+
 </ContentPage>

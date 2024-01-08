@@ -8,25 +8,48 @@
              Shell.NavBarIsVisible="False"
              Shell.TabBarIsVisible="False">
 
+    <ContentPage.Resources>
+        <Style TargetType="Button">
+            <Setter Property="BackgroundColor" Value="Black"/>
+            <Setter Property="CornerRadius" Value="0"/>
+            <Setter Property="BorderColor" Value="#2D8346"/>
+            <Setter Property="BorderWidth" Value="1.5"/>
+            <Setter Property="FontFamily" Value="Times New Roman"/>
+        </Style>
+        <Style TargetType="Label">
+            <Setter Property="HorizontalTextAlignment" Value="Center"/>
+            <Setter Property="VerticalTextAlignment" Value="Center"/>
+            <Setter Property="FontFamily" Value="Times New Roman"/>
+        </Style>
+    </ContentPage.Resources>
 
-    <Grid RowDefinitions="*,*,*,*">
-        <Label Text="Practicing with {} legs" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" Margin="5" FontSize="16" TextColor="White"/>
-        <Label Text="{}" Grid.Row="1" FontSize="50" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" Margin="10" TextColor="White"/>
-        <Label Text="{}" Grid.Row="2" Margin="0" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" FontSize="16" TextColor="#AFE391"/>
+    <ContentPage.BindingContext>
+        <viewmodel:GameMenuViewModel/>
+    </ContentPage.BindingContext>
+    
+    <Grid RowDefinitions="50,150,20,*">
+        <Label Text="Practicing with 5 legs" BackgroundColor="#2D8346" FontSize="24" Margin="5,0,0,-25" TextColor="White"/>
+        <Frame Grid.Row="1" BackgroundColor="Black" Padding="0" HasShadow="False" BorderColor="White" HeightRequest="100" Margin="70,60,70,30">
+            <Label Text="170" FontSize="50" TextColor="#AFE391" FontAttributes="Bold" Padding="0,0,0,10"/>
+        </Frame>
+        <Label Text="D20, D20, BULL" Grid.Row="2" FontSize="16" TextColor="#AFE391" Margin="0,-80,0,0"/>
 
-        <StackLayout Padding="20" Spacing="20" Grid.Row="3">
+        <StackLayout Padding="0" Spacing="50" Grid.Row="3">
 
-            <Entry x:Name="displayEntry"
-                   Placeholder="0"
+            <Frame BackgroundColor="Transparent" Margin="70,150,70,30">
+                <Entry x:Name="displayEntry"
+                   WidthRequest="120"
+                   Placeholder="Score"
                    IsReadOnly="True"
                    HorizontalOptions="FillAndExpand"
                    VerticalOptions="CenterAndExpand"
-                   FontSize="24"
-                   HorizontalTextAlignment="End"
+                   HorizontalTextAlignment="Center"
+                   FontSize="30"
+                   FontFamily="Times New Roman"
                    />
-            
+            </Frame>
 
-            <Grid RowDefinitions="*,*,*,*" ColumnDefinitions="*,*,*">
+            <Grid RowDefinitions="*,*,*,*" ColumnDefinitions="*,*,*" Grid.Row="4"  Margin="0,0,0,15">
                 <Button Text="1" Clicked="Button_Clicked" FontSize="24" Grid.Row="0" Grid.Column="0" Command="{Binding AppendDigitCommand}" CommandParameter="1"/>
                 <Button Text="2" Clicked="Button_Clicked" FontSize="24" Grid.Row="0" Grid.Column="1" Command="{Binding AppendDigitCommand}" CommandParameter="2"/>
                 <Button Text="3" Clicked="Button_Clicked" FontSize="24" Grid.Row="0" Grid.Column="2" Command="{Binding AppendDigitCommand}" CommandParameter="3"/>
@@ -39,8 +62,9 @@
                 <Button Text="8" Clicked="Button_Clicked" FontSize="24" Grid.Row="2" Grid.Column="1" Command="{Binding AppendDigitCommand}" CommandParameter="8"/>
                 <Button Text="9" Clicked="Button_Clicked" FontSize="24" Grid.Row="2" Grid.Column="2" Command="{Binding AppendDigitCommand}" CommandParameter="9"/>
 
+                <Button Text="Save" x:Name="Savebtn" Clicked="Savebtn_Clicked" FontSize="24" Grid.Row="3" Grid.Column="0" Command="{Binding SaveDisplayCommand}"/>
                 <Button Text="0" Clicked="Button_Clicked" FontSize="24" Grid.Row="3" Grid.Column="1" Command="{Binding AppendDigitCommand}" CommandParameter="0"/>
-                <Button Text="C" Clicked="Button_Clicked" FontSize="24" Grid.Row="3" Grid.Column="2" Command="{Binding ClearDisplayCommand}"/>
+                <Button Text="C" FontSize="24" Grid.Row="3" Grid.Column="2" Command="{Binding ClearDisplayCommand}"/>
             </Grid>
         </StackLayout>
     </Grid>

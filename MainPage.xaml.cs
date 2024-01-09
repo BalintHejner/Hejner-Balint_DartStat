@@ -12,9 +12,9 @@ namespace Hejner_Balint_DartStat
             InitializeComponent();
         }
 
-        private async void Button_Clicked(object sender, EventArgs e)
+        private void Button_Clicked(object sender, EventArgs e)
         {
-            await Navigation.PushAsync(new GameMode());
+           Navigation.PushAsync(new GameMode());
             
         }
 
@@ -25,7 +25,7 @@ namespace Hejner_Balint_DartStat
 
         private void ImageButtonList_Clicked(object sender, EventArgs e)
         {
-            Navigation.PushAsync(new GameMenu());
+            Navigation.PushAsync(new Toplist());
         }
     }
         

@@ -11,9 +11,6 @@
         <Tab Title="Main Page" Icon="house.svg">
             <ShellContent ContentTemplate="{DataTemplate local:MainPage}"/>
         </Tab>
-        <Tab Title="Game Mode">
-            <ShellContent ContentTemplate="{DataTemplate view:GameMode}"/>
-        </Tab>
     </TabBar>
     
     

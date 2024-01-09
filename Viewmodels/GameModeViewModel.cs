@@ -13,20 +13,15 @@ namespace Hejner_Balint_DartStat.Viewmodels
 {
     public partial class GameModeViewModel : ObservableObject
     {
-        public ObservableCollection<GameMode> Legs { get; set; }
+        public ObservableCollection<int> Legs { get; set; } 
 
         [ObservableProperty]
         int legNumber;
         public GameModeViewModel()
         {
-            this.Legs = new ObservableCollection<GameMode>
+            Legs = new ObservableCollection<int>
             {
-                //STOOPID, NO ENDLESS
-                //new GameMode() { NumberOfLegs = 1 },
-                //new GameMode() { NumberOfLegs = 2 },
-                //new GameMode() { NumberOfLegs = 3 },
-                //new GameMode() { NumberOfLegs = 4 },
-                //new GameMode() { NumberOfLegs = 5 }
+                1, 2, 3, 4, 5
             };
 
             NumberOfLegs = new Command(Leg);

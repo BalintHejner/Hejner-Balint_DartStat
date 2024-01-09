@@ -12,6 +12,18 @@ public partial class GameMode : ContentPage
 		InitializeComponent();
 		gameModeViewModel = new GameModeViewModel();
 		this.BindingContext = gameModeViewModel;
+		comboBox.ItemsSource = gameModeViewModel.Legs;
 	}
 
+    private async void startBtn_Clicked(object sender, EventArgs e)
+    {
+		if (comboBox.SelectedValue != null)
+		{
+            await Navigation.PushAsync(new GameMenu());
+		}
+		else
+		{
+			await Shell.Current.DisplayAlert("Error!", "Please select a number!", "Okay");
+		}
+    }
 }

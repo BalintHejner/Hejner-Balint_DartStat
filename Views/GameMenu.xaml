@@ -6,7 +6,8 @@
              Title="GameMenu"
              BackgroundColor="#555"
              Shell.NavBarIsVisible="False"
-             Shell.TabBarIsVisible="False">
+             Shell.TabBarIsVisible="True"
+             Shell.TabBarBackgroundColor="#555">
 
     <ContentPage.Resources>
         <Style TargetType="Button">

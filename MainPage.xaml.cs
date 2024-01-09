@@ -20,7 +20,7 @@ namespace Hejner_Balint_DartStat
 
         private void ImageButtonMusic_Clicked(object sender, EventArgs e)
         {
-
+            Navigation.PushAsync(new Statistics());
         }
 
         private void ImageButtonList_Clicked(object sender, EventArgs e)

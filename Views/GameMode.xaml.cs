@@ -13,6 +13,7 @@ public partial class GameMode : ContentPage
 		gameModeViewModel = new GameModeViewModel();
 		this.BindingContext = gameModeViewModel;
 		comboBox.ItemsSource = gameModeViewModel.Legs;
+		startBtn.Command = gameModeViewModel.NumberOfLegs;
 	}
 
     private async void startBtn_Clicked(object sender, EventArgs e)

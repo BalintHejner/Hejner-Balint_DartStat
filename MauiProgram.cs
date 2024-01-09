@@ -5,6 +5,7 @@ using Microsoft.Maui.Controls.Hosting;
 using Microsoft.Maui.Controls.Xaml;
 using Syncfusion.Maui.Core.Hosting;
 using Hejner_Balint_DartStat.Viewmodels;
+using CommunityToolkit.Maui;
 using static System.Runtime.InteropServices.JavaScript.JSType;
 using Hejner_Balint_DartStat.Views;
 
@@ -18,6 +19,7 @@ namespace Hejner_Balint_DartStat
             builder
                 .UseMauiApp<App>()
                 .ConfigureSyncfusionCore()
+                .UseMauiCommunityToolkit()
                 .ConfigureMauiHandlers(handlers => { })
                 .ConfigureFonts(fonts =>
                 {

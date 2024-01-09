@@ -2,10 +2,15 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:viewmodel="clr-namespace:Hejner_Balint_DartStat.Viewmodels"
+             xmlns:toolkit="clr-namespace:CommunityToolkit.Maui.Behaviors;assembly=CommunityToolkit.Maui"
              x:Class="Hejner_Balint_DartStat.MainPage"        
              Shell.NavBarIsVisible="False"
              Shell.TabBarIsVisible="False"
              >
+
+    <ContentPage.Behaviors>
+        <toolkit:StatusBarBehavior StatusBarColor="#2D8346"/>
+    </ContentPage.Behaviors>
     
     <VerticalStackLayout BackgroundColor="#2D8346">
         <StackLayout>
@@ -21,8 +26,8 @@
             </StackLayout>
             <Label Text="Please choose a gamemode:" TextColor="White" FontSize="20" Margin="0,8,0,0"/>
             <StackLayout Orientation="Horizontal" VerticalOptions="Center">
-                <Button Text="301" MaximumHeightRequest="70" Margin="5" FontSize="18" BackgroundColor="Transparent" BorderWidth="2" Clicked="Button_Clicked" MinimumWidthRequest="185"/>
-                <Button Text="501"  MaximumHeightRequest="70" Margin="5" FontSize="18" BackgroundColor="Transparent" BorderWidth="2" Clicked="Button_Clicked" MinimumWidthRequest="185"/>
+                <Button Text="301" MaximumHeightRequest="70" Margin="5,5,5,5" FontSize="18" BackgroundColor="Transparent" BorderWidth="2" Clicked="Button_Clicked" MinimumWidthRequest="185"/>
+                <Button Text="501"  MaximumHeightRequest="70" Margin="2,5,5,5" FontSize="18" BackgroundColor="Transparent" BorderWidth="2" Clicked="Button_Clicked" MinimumWidthRequest="185"/>
             </StackLayout>
             <Image Source="champion.png" VerticalOptions="CenterAndExpand" />
             <!--<Label TextColor="Black" HorizontalOptions="Fill" Margin="0" FontSize="10" HorizontalTextAlignment="Center" Text="Luke Humphries, the 2024 World Champion" FontAttributes="Italic"/>-->

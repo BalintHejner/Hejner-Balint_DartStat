@@ -3,41 +3,27 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:dtg="clr-namespace:Syncfusion.Maui.DataGrid;assembly=Syncfusion.Maui.DataGrid"
              xmlns:view="clr-namespace:Hejner_Balint_DartStat.Viewmodels"
+             xmlns:toolkit="clr-namespace:CommunityToolkit.Maui.Behaviors;assembly=CommunityToolkit.Maui"
              x:Class="Hejner_Balint_DartStat.Views.Toplist"
              Title="Toplist"
              BackgroundColor="#2D8346"
              Shell.NavBarIsVisible="False"
              Shell.TabBarIsVisible="True">
 
+    <ContentPage.Behaviors>
+        <toolkit:StatusBarBehavior StatusBarColor="#2D8346"/>
+    </ContentPage.Behaviors>
+
+
     <ContentPage.BindingContext>
         <view:TopListViewModel x:Name="viewmodel"/>
     </ContentPage.BindingContext>
     
     <VerticalStackLayout>
-        <!--<TableView Intent="Data">
-            <TableRoot>
-                <TableSection Title="Points">
-                    <TextCell Text="{}"/>
-                </TableSection>
-                <TableSection Title="Number of leg">
-                    <TextCell Text="{}"/>
-                </TableSection>
-                <TableSection Title="Thrown Arrows">
-                    <TextCell Text="{}"/>
-                </TableSection>
-                <TableSection Title="Highest throw">
-                    <TextCell Text="{}"/>
-                </TableSection>
-                <TableSection Title="Average score">
-                    <TextCell Text="{}"/>
-                </TableSection>
-            </TableRoot>
-        </TableView>-->
-        
-        <!--Datagrid megoldás-->
+      
         <dtg:SfDataGrid x:Name="dataGrid" ItemsSource="{Binding ToplistCollection}" ColumnWidthMode="Fill" VerticalScrollBarVisibility="Default" AllowEditing="False" AutoGenerateColumnsMode="None" SortingMode="Single" SortingGestureType="Tap"> 
             <dtg:SfDataGrid.Columns>
-                <dtg:DataGridNumericColumn HeaderText="Pts" Width="77" MappingName="Points" HeaderTextAlignment="Center"/>
+                <dtg:DataGridNumericColumn  HeaderText="Pts" Width="77" MappingName="Points" HeaderTextAlignment="Center"/>
                 <dtg:DataGridNumericColumn HeaderText="Leg" Width="67" MappingName="Number of Leg" HeaderTextAlignment="Center"/>
                 <dtg:DataGridNumericColumn HeaderText="Arrows" Width="110" MappingName="Thrown Arrows" HeaderTextAlignment="Center"/>
                 <dtg:DataGridNumericColumn HeaderText="Max" Width="90" MappingName="Highest score" HeaderTextAlignment="Center"/>
@@ -45,7 +31,6 @@
             </dtg:SfDataGrid.Columns>
         </dtg:SfDataGrid>
 
-        <!--https://help.syncfusion.com/maui/datagrid/getting-started?cs-save-lang=1&cs-lang=xaml#create-datamodel-for-the-sfdatagrid-->
 
     </VerticalStackLayout>
 </ContentPage>

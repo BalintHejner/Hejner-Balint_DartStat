@@ -22,7 +22,7 @@
 
             <StackLayout Orientation="Horizontal" Spacing="30" HorizontalOptions="Center">
                 <cbx:SfComboBox x:Name="comboBox" WidthRequest="100" FontSize="18" TextColor="White" IsClearButtonVisible="False" BackgroundColor="#525050" DropDownIconColor="#AF35AE" Placeholder="Legs" PlaceholderColor="White" IsEditable="False"/>
-                <Button Text="Start" x:Name="startBtn" Clicked="startBtn_Clicked" CornerRadius="0" BorderColor="#555" BorderWidth="2" BackgroundColor="#AFE391" />
+                <Button Text="Start" x:Name="startBtn" Clicked="startBtn_Clicked" CornerRadius="0" BorderColor="#555" BorderWidth="2" TextColor="Black" BackgroundColor="#AFE391" />
             </StackLayout>
         </StackLayout>
     </HorizontalStackLayout>

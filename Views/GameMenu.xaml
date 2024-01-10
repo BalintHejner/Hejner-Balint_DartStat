@@ -44,7 +44,7 @@
         <StackLayout Padding="0" Spacing="50" Grid.Row="3">
 
             <Frame BackgroundColor="Transparent" Margin="70,150,70,-32">
-                <Entry x:Name="displayEntry"
+                <!--<Entry x:Name="displayEntry"
                    WidthRequest="120"
                    Placeholder="Score"
                    HorizontalOptions="FillAndExpand"
@@ -53,10 +53,15 @@
                    IsReadOnly="True"
                    FontSize="30"
                    FontFamily="Times New Roman"
-                   />
+                   />-->
+                <Entry PlaceholderColor="#2D8346" x:Name="disappointingEntry" Placeholder="Score" Keyboard="Numeric" BackgroundColor="#555" WidthRequest="128" HorizontalOptions="FillAndExpand" VerticalOptions="CenterAndExpand" HorizontalTextAlignment="Center" FontFamily="Times New Roman" FontSize="30" IsPassword="False"></Entry>
             </Frame>
 
-            <Grid RowDefinitions="*,*,*,*" ColumnDefinitions="*,*,*" Grid.Row="4"  Margin="0,0,0,15">
+            <HorizontalStackLayout Spacing="25" HorizontalOptions="CenterAndExpand">
+                <Button Text="Save" x:Name="Savebtn" Clicked="Savebtn_Clicked" FontSize="24" />
+                <Button Text="Clear" x:Name="Clearbtn" Clicked="Clearbtn_Clicked" FontSize="24"/>
+            </HorizontalStackLayout>
+            <!--<Grid RowDefinitions="*,*,*,*" ColumnDefinitions="*,*,*" Grid.Row="4"  Margin="0,0,0,15">
                 <Button Text="1" x:Name="btn_one"  FontSize="24" Grid.Row="0" Grid.Column="0" Command="{Binding AppendDigitCommand}" CommandParameter="1"/>
                 <Button Text="2" x:Name="btn_two" FontSize="24" Grid.Row="0" Grid.Column="1" Command="{Binding AppendDigitCommand}" CommandParameter="2"/>
                 <Button Text="3" x:Name="btn_three"  FontSize="24" Grid.Row="0" Grid.Column="2" Command="{Binding AppendDigitCommand}" CommandParameter="3"/>
@@ -72,7 +77,7 @@
                 <Button Text="Save" x:Name="btn_save"  FontSize="24" Grid.Row="3" Grid.Column="0" Command="{Binding SaveDisplayCommand}"/>
                 <Button Text="0" x:Name="btn_zero"  FontSize="24" Grid.Row="3" Grid.Column="1" Command="{Binding AppendDigitCommand}" CommandParameter="0"/>
                 <Button Text="C" x:Name="btn_clear" FontSize="24" Grid.Row="3" Grid.Column="2" Command="{Binding ClearDisplayCommand}"/>
-            </Grid>
+            </Grid>-->
         </StackLayout>
     </Grid>
 </ContentPage>

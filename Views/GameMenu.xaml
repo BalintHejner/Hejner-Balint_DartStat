@@ -35,16 +35,16 @@
     </ContentPage.Resources>
     
     <Grid RowDefinitions="50,150,20,*">
-        <Label Text="{Binding LegNumber, StringFormat='Practicing with {0} legs'}" BackgroundColor="#2D8346" FontSize="24" Margin="5,0,0,-25" TextColor="White"/>
+        <Label Text="{Binding Practicinglegs, StringFormat='Practicing with {0} legs'}" BackgroundColor="#2D8346" FontSize="24" Margin="5,0,0,-25" TextColor="White"/>
         <Frame Grid.Row="1" BackgroundColor="Black" Padding="0" HasShadow="False" BorderColor="White" HeightRequest="100" Margin="70,60,70,30">
-            <Label Text="{Binding Scores}" x:Name="score_LB" FontSize="50" TextColor="#AFE391" FontAttributes="Bold" Padding="0,0,0,10"/>
+            <Label Text="{Binding StartingScore}" x:Name="score_LB" FontSize="50" TextColor="#AFE391" FontAttributes="Bold" Padding="0,0,0,10"/>
         </Frame>
-        <Label Text="{Binding Outs}" x:Name="out_LB" Grid.Row="2" FontSize="16" TextColor="#AFE391" Margin="0,-80,0,0"/>
+        <Label Text="{Binding Theoutstext}" x:Name="out_LB" IsVisible="{Binding Istheoutvisible}" Grid.Row="2" FontSize="16" TextColor="#AFE391" Margin="0,-80,0,0"/>
 
         <StackLayout Padding="0" Spacing="50" Grid.Row="3">
 
             <Frame BackgroundColor="Transparent" Margin="70,150,70,-32">
-                <!--<Entry x:Name="displayEntry"
+                <!--<Entry x:Name="disappointingEntry"
                    WidthRequest="120"
                    Placeholder="Score"
                    HorizontalOptions="FillAndExpand"
@@ -54,11 +54,11 @@
                    FontSize="30"
                    FontFamily="Times New Roman"
                    />-->
-                <Entry PlaceholderColor="#2D8346" x:Name="disappointingEntry" Placeholder="Score" Keyboard="Numeric" BackgroundColor="#555" WidthRequest="128" HorizontalOptions="FillAndExpand" VerticalOptions="CenterAndExpand" HorizontalTextAlignment="Center" FontFamily="Times New Roman" FontSize="30" IsPassword="False"></Entry>
+                <Entry PlaceholderColor="#2D8346" Text="{Binding Labeltextscore}" x:Name="disappointingEntry" Placeholder="Score" Keyboard="Numeric" BackgroundColor="#555" WidthRequest="128" HorizontalOptions="FillAndExpand" VerticalOptions="CenterAndExpand" HorizontalTextAlignment="Center" FontFamily="Times New Roman" FontSize="30" IsPassword="False"></Entry>
             </Frame>
 
             <HorizontalStackLayout Spacing="25" HorizontalOptions="CenterAndExpand">
-                <Button Text="Save" x:Name="Savebtn" Clicked="Savebtn_Clicked" FontSize="24" />
+                <Button Text="Save" x:Name="Savebtn" FontSize="24" Clicked="Savebtn_Clicked" Command="{Binding NavigateEntryScoreToLabelScoreCommand}"/>
                 <Button Text="Clear" x:Name="Clearbtn" Clicked="Clearbtn_Clicked" FontSize="24"/>
             </HorizontalStackLayout>
             <!--<Grid RowDefinitions="*,*,*,*" ColumnDefinitions="*,*,*" Grid.Row="4"  Margin="0,0,0,15">

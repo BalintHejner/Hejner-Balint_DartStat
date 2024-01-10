@@ -18,22 +18,22 @@
         <TableView Intent="Data">
             <TableRoot>
                 <TableSection Title="Best out">
-                    <TextCell Text=""/>
+                    <TextCell x:Name="TC_bo" Text=""/>
                 </TableSection>
                 <TableSection Title="Number of leg">
-                    <TextCell Text=""/>
+                    <TextCell x:Name="TC_nol" Text=""/>
                 </TableSection>
                 <TableSection Title="Least arrows thrown">
-                    <TextCell Text=""/>
+                    <TextCell x:Name="TC_lat" Text=""/>
                 </TableSection>
                 <TableSection Title="Thrown Arrows">
-                    <TextCell Text=""/>
+                    <TextCell x:Name="TC_ta" Text=""/>
                 </TableSection>
                 <TableSection Title="Highest throw">
-                    <TextCell Text=""/>
+                    <TextCell x:Name="TC_ht" Text=""/>
                 </TableSection>
                 <TableSection Title="Average score">
-                    <TextCell Text=""/>
+                    <TextCell x:Name="TC_as" Text=""/>
                 </TableSection>
             </TableRoot>
         </TableView>

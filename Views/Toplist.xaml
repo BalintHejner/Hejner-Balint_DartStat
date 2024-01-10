@@ -20,14 +20,15 @@
     </ContentPage.BindingContext>
     
     <VerticalStackLayout>
+        
       
         <dtg:SfDataGrid x:Name="dataGrid" ItemsSource="{Binding ToplistCollection}" ColumnWidthMode="Fill" VerticalScrollBarVisibility="Default" AllowEditing="False" AutoGenerateColumnsMode="None" SortingMode="Single" SortingGestureType="Tap"> 
             <dtg:SfDataGrid.Columns>
-                <dtg:DataGridNumericColumn  HeaderText="Pts" Width="77" MappingName="Points" HeaderTextAlignment="Center"/>
-                <dtg:DataGridNumericColumn HeaderText="Leg" Width="67" MappingName="Number of Leg" HeaderTextAlignment="Center"/>
-                <dtg:DataGridNumericColumn HeaderText="Arrows" Width="110" MappingName="Thrown Arrows" HeaderTextAlignment="Center"/>
-                <dtg:DataGridNumericColumn HeaderText="Max" Width="90" MappingName="Highest score" HeaderTextAlignment="Center"/>
-                <dtg:DataGridNumericColumn HeaderText="Avg" Width="90" MappingName="Avg" HeaderTextAlignment="Center"/>
+                <dtg:DataGridNumericColumn x:Name="dtg_Pts" HeaderText="Pts"  Width="77" MappingName="Points" HeaderTextAlignment="Center"/>
+                <dtg:DataGridNumericColumn x:Name="dtg_NoL" HeaderText="Leg" Width="67" MappingName="Number of Leg" HeaderTextAlignment="Center"/>
+                <dtg:DataGridNumericColumn x:Name="dtg_Ta" HeaderText="Arrows" Width="110" MappingName="Thrown Arrows" HeaderTextAlignment="Center"/>
+                <dtg:DataGridNumericColumn x:Name="dtg_Hs" HeaderText="Max" Width="90" MappingName="Highest score" HeaderTextAlignment="Center"/>
+                <dtg:DataGridNumericColumn x:Name="dtg_Avg" HeaderText="Avg" Width="90" MappingName="Average" HeaderTextAlignment="Center"/>
             </dtg:SfDataGrid.Columns>
         </dtg:SfDataGrid>
 

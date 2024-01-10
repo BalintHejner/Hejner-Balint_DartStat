@@ -12,21 +12,20 @@ public partial class GameMode : ContentPage
 	{
 		InitializeComponent();
 		gameModeViewModel = new GameModeViewModel();
-		this.BindingContext = gameModeViewModel;
 		comboBox.ItemsSource = gameModeViewModel.Legs;
 		//startBtn.Command = gameModeViewModel.NumberOfLegs;
-		NumberOfLegs = comboBox.SelectedIndex + 1;
+		//NumberOfLegs = comboBox.SelectedIndex + 1;
 	}
 
-    private async void startBtn_Clicked(object sender, EventArgs e)
-    {
-		if (comboBox.SelectedValue != null)
-		{
-            await Navigation.PushAsync(new GameMenu());
-		}
-		else
-		{
-			await Shell.Current.DisplayAlert("Error!", "Please select a number!", "Okay");
-		}
-    }
+  //  private async void startBtn_Clicked(object sender, EventArgs e)
+  //  {
+		////if (comboBox.SelectedValue != null)
+		////{
+  ////          await Navigation.PushAsync(new GameMenu());
+		////}
+		////else
+		////{
+		////	await Shell.Current.DisplayAlert("Error!", "Please select a number!", "Okay");
+		////}
+  //  }
 }

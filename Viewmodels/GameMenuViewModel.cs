@@ -1,39 +1,71 @@
-﻿using CommunityToolkit.Mvvm.ComponentModel;
+﻿using Android.Service.Autofill;
+using CommunityToolkit.Mvvm.ComponentModel;
+using CommunityToolkit.Mvvm.Input;
 using System.Collections.ObjectModel;
 
 namespace Hejner_Balint_DartStat.Viewmodels
 {
-    [QueryProperty(nameof(LegNumber), "legNumber")]
+    [QueryProperty(nameof(StartingScore), "scorestarting")]
+    [QueryProperty(nameof(Practicinglegs), "numberofleg")]
     public partial class GameMenuViewModel : ObservableObject
     {
+
+        [ObservableProperty] int startingScore;
+        [ObservableProperty] int practicinglegs;
+        [ObservableProperty] int labeltextscore;
+        [ObservableProperty] string theoutstext;
+        [ObservableProperty] bool istheoutvisible = false;
+
+        [ICommand]
+        async Task NavigateEntryScoreToLabelScore()
+        {
+            startingScore = startingScore - labeltextscore;
+
+
+            if (Outs.ContainsKey(startingScore))
+            {
+                istheoutvisible = true;
+                theoutstext = Outs[startingScore];
+            }
+        }
+
         DartStatDatabase database;
         //public ICommand AppendDigitCommand { get; }
         //public ICommand ClearDisplayCommand { get; }
         //public ICommand SaveDisplayCommand { get; }
-        public ObservableCollection<string> Scores { get; }
-        public int Score { get; set; }
-        public string Out { get; set; }
-        public Dictionary<int, string> Outs { get; }
+        //public ObservableCollection<int> Scores { get; }
+        //public int Score { get; set; }
+        //public string Out { get; set; }
+        public Dictionary<int, string> Outs = new Dictionary<int, string>();
 
-        private Entry displayEntry;
+        private Entry disappointingEntry;
         private Label score_LB;
 
-        List<GameMenuViewModel> outts = new List<GameMenuViewModel>();
+        //List<GameMenuViewModel> outts = new List<GameMenuViewModel>();
 
-        [ObservableProperty] int legNumber;
 
-        //public void EntryToWork(Entry displayEntry)
-        //{
-        //    this.displayEntry = displayEntry;
-        //}
+        public void EntryToWork(Entry disappointingEntry)
+        {
+            this.disappointingEntry = disappointingEntry;
+        }
 
+        public async void FillDictionary()
+        {
+            using Stream fileStream = await FileSystem.Current.OpenAppPackageFileAsync("Outs.txt");
+            using StreamReader reader = new StreamReader(fileStream);
+            while (!reader.EndOfStream)
+            {
+                string[] line = reader.ReadLine().Split(':');
+                Outs.Add(int.Parse(line[0]), line[1]);
+            }
+        }
         public GameMenuViewModel()
         {
-            Scores = new ObservableCollection<string>();
-            for (int i = 1; i <= 501; i++)
-            {
-                Scores.Add(i.ToString());
-            }
+            //Scores = new ObservableCollection<int>();
+            //for (int i = 1; i <= 501; i++)
+            //{
+            //    Scores.Add(i);
+            //}
             //AppendDigitCommand = new Command<string>(AppendDigit);
             //ClearDisplayCommand = new Command(ClearDisplay);
             //SaveDisplayCommand = new Command(SaveDisplay);
@@ -65,15 +97,15 @@ namespace Hejner_Balint_DartStat.Viewmodels
 
         //private void AppendDigit(string digit)
         //{
-        //    displayEntry.Text += digit;
+        //    disappointingEntry.Text += digit;
         //}
 
         //private void ClearDisplay()
         //{
-        //    displayEntry.Text = "";
+        //    disappointingEntry.Text = "";
         //}
 
-        //private async void SaveDisplay()
+        //private async void Savedisplay()
         //{
         //    int legs = 0;
         //    for (int i = 1; i < LegNumber; i++)
@@ -81,11 +113,11 @@ namespace Hejner_Balint_DartStat.Viewmodels
         //        legs = i;
         //    }
 
-        //    Round ujKor = new Round(legs, legNumber*3, int.Parse(displayEntry.Text), int.Parse(score_LB.Text)  - int.Parse(displayEntry.Text), int.Parse(displayEntry.Text) / legNumber * 3);
+        //    Round ujkor = new Round(legs, LegNumber * 3, int.Parse(disappointingEntry.Text), int.Parse(score_LB.Text) - int.Parse(disappointingEntry.Text), int.Parse(disappointingEntry.Text) / LegNumber * 3);
 
-        //    displayEntry.Text = "";
+        //    disappointingEntry.Text = "";
 
-        //    await database.SaveItemAsync(ujKor);
+        //    await database.SaveItemAsync(ujkor);
         //}
 
     }

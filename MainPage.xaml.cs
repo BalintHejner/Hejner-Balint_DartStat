@@ -5,17 +5,18 @@ namespace Hejner_Balint_DartStat
 {
     public partial class MainPage : ContentPage
     {
-
+        MainPageViewModel mainPageViewModel = new MainPageViewModel();
 
         public MainPage()
         {
             InitializeComponent();
+            BindingContext = mainPageViewModel;
+
         }
 
         private void Button_Clicked(object sender, EventArgs e)
         {
-           Navigation.PushAsync(new GameMode());
-            
+           Navigation.PushAsync(new GameMode());  
         }
 
         private void ImageButtonMusic_Clicked(object sender, EventArgs e)

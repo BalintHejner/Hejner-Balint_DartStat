@@ -1,4 +1,5 @@
 using Hejner_Balint_DartStat.Viewmodels;
+using System.Security.Cryptography.X509Certificates;
 
 namespace Hejner_Balint_DartStat.Views;
 
@@ -13,7 +14,8 @@ public partial class GameMode : ContentPage
 		gameModeViewModel = new GameModeViewModel();
 		this.BindingContext = gameModeViewModel;
 		comboBox.ItemsSource = gameModeViewModel.Legs;
-		startBtn.Command = gameModeViewModel.NumberOfLegs;
+		//startBtn.Command = gameModeViewModel.NumberOfLegs;
+		NumberOfLegs = comboBox.SelectedIndex + 1;
 	}
 
     private async void startBtn_Clicked(object sender, EventArgs e)

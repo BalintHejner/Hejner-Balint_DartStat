@@ -31,7 +31,7 @@ namespace Hejner_Balint_DartStat.Viewmodels
 
         private void Leg()
         {
-            Shell.Current.GoToAsync($"{nameof(GameMenu)}?legnumber={legNumber}");
+            Shell.Current.GoToAsync($"{nameof(GameMenu)}?legnumber={LegNumber}");
         }
     }
 }

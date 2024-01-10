@@ -8,15 +8,10 @@
     Shell.FlyoutBehavior="Disabled"
     >
 
-    <Shell.Resources>
-        <DataTemplate x:Key="MainPageTemplate" xmlns:main="clr-namespace:Hejner_Balint_DartStat">
-            <main:MainPage />
-        </DataTemplate>
-    </Shell.Resources>
     
     <TabBar>
-        <Tab Title="Main Page" Icon="house.svg" Route="MainPage">
-            <ShellContent ContentTemplate="{DataTemplate local:MainPage}" Route="MainPage"/>
+        <Tab Title="Main Page" Icon="house.svg">
+            <ShellContent ContentTemplate="{DataTemplate local:MainPage}"/>
         </Tab>
     </TabBar>
     

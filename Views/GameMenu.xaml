@@ -14,6 +14,9 @@
         <toolkit:StatusBarBehavior StatusBarColor="#2D8346"/>
     </ContentPage.Behaviors>
 
+    <ContentPage.BindingContext>
+        <viewmodel:GameMenuViewModel/>
+    </ContentPage.BindingContext>
 
     <ContentPage.Resources>
         <Style TargetType="Button">

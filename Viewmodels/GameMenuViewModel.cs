@@ -7,12 +7,14 @@ using System.Windows.Input;
 using Microsoft.Maui.Controls;
 using Hejner_Balint_DartStat;
 using CommunityToolkit.Mvvm.ComponentModel;
+using CommunityToolkit.Mvvm.Input;
 using Hejner_Balint_DartStat.Views;
 using System.Security.Cryptography;
 using System.Collections.ObjectModel;
 
 namespace Hejner_Balint_DartStat.Viewmodels
 {
+    [QueryProperty(nameof(LegNumber), "legNumber")]
     public partial class GameMenuViewModel : ObservableObject
     {
         DartStatDatabase database;
@@ -20,9 +22,11 @@ namespace Hejner_Balint_DartStat.Viewmodels
         public ICommand ClearDisplayCommand { get; }
         public ICommand SaveDisplayCommand { get; }
         public ObservableCollection<string> Scores { get; }
-        public ObservableCollection<string> Outs { get; }
+        public Dictionary<int, string> Outs { get; }
 
         private Entry displayEntry;
+
+        [ObservableProperty] int legNumber;
 
         public GameMenuViewModel()
         {
@@ -31,6 +35,17 @@ namespace Hejner_Balint_DartStat.Viewmodels
             {
                 Scores.Add(i.ToString());
             }
+            Outs = new Dictionary<int, string>();
+            
+            //foreach (var item in File.ReadAllLines("Outs.txt"))
+            //{
+                         
+            //}
+        }
+
+        public void EntryToWork(Entry displayEntry)
+        {
+            this.displayEntry = displayEntry;
         }
 
         public GameMenuViewModel(Entry displayEntry)
@@ -61,9 +76,7 @@ namespace Hejner_Balint_DartStat.Viewmodels
             await database.SaveItemAsync(ujKor);
         }
 
-        [ObservableProperty] int legNumber;
+       
 
-        //[QueryProperty(nameof(GameMode), "legNumber")]
-    
     }
 }

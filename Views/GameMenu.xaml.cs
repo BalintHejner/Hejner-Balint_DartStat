@@ -5,15 +5,26 @@ namespace Hejner_Balint_DartStat.Views;
 public partial class GameMenu : ContentPage
 {
 	DartStatDatabase database;
-	public GameMenuViewModel gameMenuViewModel { get; set; }
+	GameMenuViewModel viewModel;
 
     public GameMenu()
 	{
 		InitializeComponent();
 		database = new DartStatDatabase();
+		viewModel = new GameMenuViewModel();
 		score_LB.Text = "501";
-		this.BindingContext = gameMenuViewModel;
 	}
 
-   
+	private void Load()
+	{
+		viewModel.EntryToWork(this.displayEntry);
+	}
+
+    protected override void OnAppearing()
+    {
+        base.OnAppearing();
+		Load();
+    }
+
+
 }

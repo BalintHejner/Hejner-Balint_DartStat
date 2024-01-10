@@ -25,8 +25,14 @@ namespace Hejner_Balint_DartStat.Viewmodels
         public Dictionary<int, string> Outs { get; }
 
         private Entry displayEntry;
+        private Label score_LB;
 
         [ObservableProperty] int legNumber;
+
+        public void EntryToWork(Entry displayEntry)
+        {
+            this.displayEntry = displayEntry;
+        }
 
         public GameMenuViewModel()
         {
@@ -36,21 +42,11 @@ namespace Hejner_Balint_DartStat.Viewmodels
                 Scores.Add(i.ToString());
             }
             Outs = new Dictionary<int, string>();
-            
+
             //foreach (var item in File.ReadAllLines("Outs.txt"))
             //{
-                         
+
             //}
-        }
-
-        public void EntryToWork(Entry displayEntry)
-        {
-            this.displayEntry = displayEntry;
-        }
-
-        public GameMenuViewModel(Entry displayEntry)
-        {
-            this.displayEntry = displayEntry;
             AppendDigitCommand = new Command<string>(AppendDigit);
             ClearDisplayCommand = new Command(ClearDisplay);
             SaveDisplayCommand = new Command(SaveDisplay);
@@ -69,7 +65,13 @@ namespace Hejner_Balint_DartStat.Viewmodels
 
         private async void SaveDisplay()
         {
-            Round ujKor = new Round(0, legNumber*3, int.Parse(displayEntry.Text), 0 - int.Parse(displayEntry.Text), int.Parse(displayEntry.Text) / legNumber * 3);
+            int legs = 0;
+            for (int i = 1; i < LegNumber; i++)
+            {
+                legs = i;
+            }
+
+            Round ujKor = new Round(legs, legNumber*3, int.Parse(displayEntry.Text), int.Parse(score_LB.Text)  - int.Parse(displayEntry.Text), int.Parse(displayEntry.Text) / legNumber * 3);
 
             displayEntry.Text = "";
 

@@ -43,7 +43,7 @@
 
         <StackLayout Padding="0" Spacing="50" Grid.Row="3">
 
-            <Frame BackgroundColor="Transparent" Margin="70,150,70,-32">
+            <Frame BackgroundColor="Transparent" Margin="70,50,70,-32">
                 <!--<Entry x:Name="disappointingEntry"
                    WidthRequest="120"
                    Placeholder="Score"

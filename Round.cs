@@ -14,16 +14,14 @@ namespace Hejner_Balint_DartStat
         [AutoIncrement] [Required] public int LegNumber { get; set; }
         [Required] public int DartsThrown { get; set; }
         [Required] public int Score { get; set; }
-        [Required] public int RemainingScore { get; set; }
-        [Required] public int AverageScore { get; set; }
+        [Required] public double AverageScore { get; set; }
 
 
-        public Round(int legNumber, int dartsThrown, int score, int remainingScore, int averageScore)
+        public Round(int legNumber, int dartsThrown, int score, double averageScore)
         {
             LegNumber = legNumber;
             DartsThrown = dartsThrown;
             Score = score;
-            RemainingScore = remainingScore;
             AverageScore = averageScore;
         }
 

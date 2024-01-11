@@ -1,6 +1,6 @@
-﻿using Android.Service.Autofill;
-using CommunityToolkit.Mvvm.ComponentModel;
+﻿using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
+using Hejner_Balint_DartStat.Views;
 using System.Collections.ObjectModel;
 
 namespace Hejner_Balint_DartStat.Viewmodels
@@ -11,17 +11,50 @@ namespace Hejner_Balint_DartStat.Viewmodels
     {
 
         [ObservableProperty] int startingScore;
+        [ObservableProperty] int updatedstartingScore;
         [ObservableProperty] int practicinglegs;
         [ObservableProperty] int labeltextscore;
+        [ObservableProperty] int dartsthrownnotsovirtually;
         [ObservableProperty] string theoutstext;
         [ObservableProperty] bool istheoutvisible = false;
+        public int startingstartingscore;
 
         [ICommand]
         async Task NavigateEntryScoreToLabelScore()
         {
-            startingScore = startingScore - labeltextscore;
+            if (startingScore - labeltextscore < 0)
+            {
+                await Application.Current.MainPage.DisplayAlert("Error", "You busted!", "OK");
+            }
+            else
+            {
+                startingScore = startingScore - labeltextscore;
+                dartsthrownnotsovirtually += 3;
+                if (startingScore == 0)
+                {
+                    await Application.Current.MainPage.DisplayAlert("Congratulations", "You finished the leg!", "OK");
+                    Round round = new Round(practicinglegs, dartsthrownnotsovirtually, startingScore, (double)startingScore / dartsthrownnotsovirtually);
+                    practicinglegs = practicinglegs - 1;
+                    //disappointingEntry.Text = "";
+                    if (practicinglegs > 0)
+                    {
+                        StartingScore = startingstartingscore;
+                        dartsthrownnotsovirtually = 0;
+                    }
+                    else
+                    {
+                        await Shell.Current.GoToAsync($"{nameof(Statistics)}");
+                        await Application.Current.MainPage.DisplayAlert("Success", "Data uploaded!", "OK");
+                    }
+                }
+            }
 
 
+
+            if (Outs.Count == 0)
+            {
+                FillDictionary();
+            }
             if (Outs.ContainsKey(startingScore))
             {
                 istheoutvisible = true;
@@ -39,7 +72,7 @@ namespace Hejner_Balint_DartStat.Viewmodels
         public Dictionary<int, string> Outs = new Dictionary<int, string>();
 
         private Entry disappointingEntry;
-        private Label score_LB;
+        //private Label score_LB;
 
         //List<GameMenuViewModel> outts = new List<GameMenuViewModel>();
 
@@ -70,6 +103,9 @@ namespace Hejner_Balint_DartStat.Viewmodels
             //ClearDisplayCommand = new Command(ClearDisplay);
             //SaveDisplayCommand = new Command(SaveDisplay);
             database = new DartStatDatabase();
+            //startingstartingscore = startingScore;
+            //updatedstartingScore = startingScore;
+            //disappointingEntry.Text = "";
 
             // foreach (var item in File.ReadAllLines("Outs.txt"))
             //{

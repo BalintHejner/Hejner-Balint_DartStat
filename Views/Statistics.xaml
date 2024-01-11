@@ -2,6 +2,7 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:toolkit="clr-namespace:CommunityToolkit.Maui.Behaviors;assembly=CommunityToolkit.Maui"
+             xmlns:viewmodel="clr-namespace:Hejner_Balint_DartStat.Viewmodels"
              x:Class="Hejner_Balint_DartStat.Views.Statistics"
              Title="Statistics"
              BackgroundColor="#2D8346"
@@ -9,33 +10,57 @@
              Shell.TabBarIsVisible="True"
              >
 
+
     <ContentPage.Behaviors>
         <toolkit:StatusBarBehavior StatusBarColor="#2D8346"/>
     </ContentPage.Behaviors>
 
 
     <VerticalStackLayout>
-        <TableView Intent="Data">
+        <!--<TableView Intent="Data">
             <TableRoot>
-                <TableSection Title="Best out">
-                    <TextCell x:Name="TC_bo" Text=""/>
-                </TableSection>
                 <TableSection Title="Number of leg">
                     <TextCell x:Name="TC_nol" Text=""/>
                 </TableSection>
-                <TableSection Title="Least arrows thrown">
-                    <TextCell x:Name="TC_lat" Text=""/>
-                </TableSection>
-                <TableSection Title="Thrown Arrows">
+                <TableSection Title="Thrown arrows">
                     <TextCell x:Name="TC_ta" Text=""/>
                 </TableSection>
-                <TableSection Title="Highest throw">
-                    <TextCell x:Name="TC_ht" Text=""/>
+                <TableSection Title="Starting score">
+                    <TextCell x:Name="TC_ss" Text=""/>
                 </TableSection>
                 <TableSection Title="Average score">
                     <TextCell x:Name="TC_as" Text=""/>
                 </TableSection>
             </TableRoot>
-        </TableView>
+        </TableView>-->
+
+        <FlexLayout Padding="10" Margin="10">
+            <ListView x:Name="lsv_stats" HasUnevenRows="True" RowHeight="200" >
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <StackLayout Orientation="Vertical" HorizontalOptions="Fill" Padding="10">
+                                <StackLayout>
+                                    <Label Text="Number of leg"/>
+                                    <Label Text="{Binding LegNumber}"/>
+                                </StackLayout>
+                                <StackLayout>
+                                    <Label Text="Thrown arrows"/>
+                                    <Label Text="{Binding DartsThrown}"/>
+                                </StackLayout>
+                                <StackLayout>
+                                    <Label Text="Starting score"/>
+                                    <Label Text="{Binding Score}"/>
+                                </StackLayout>
+                                <StackLayout>
+                                    <Label Text="Average score"/>
+                                    <Label Text="{Binding AverageScore}"/>
+                                </StackLayout>
+                            </StackLayout>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </FlexLayout>
     </VerticalStackLayout>
 </ContentPage>

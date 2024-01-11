@@ -15,14 +15,11 @@
     </ContentPage.Behaviors>
 
 
-    <ContentPage.BindingContext>
-        <view:TopListViewModel x:Name="viewmodel"/>
-    </ContentPage.BindingContext>
     
     <VerticalStackLayout>
         
       
-        <dtg:SfDataGrid x:Name="dataGrid" ItemsSource="{Binding ToplistCollection}" ColumnWidthMode="Fill" VerticalScrollBarVisibility="Default" AllowEditing="False" AutoGenerateColumnsMode="None" SortingMode="Single" SortingGestureType="Tap"> 
+        <!--<dtg:SfDataGrid x:Name="dataGrid" ColumnWidthMode="Fill" VerticalScrollBarVisibility="Default" AllowEditing="False" AutoGenerateColumnsMode="None" SortingMode="Single" SortingGestureType="Tap"> 
             <dtg:SfDataGrid.Columns>
                 <dtg:DataGridNumericColumn x:Name="dtg_Pts" HeaderText="Pts"  Width="77" MappingName="Points" HeaderTextAlignment="Center"/>
                 <dtg:DataGridNumericColumn x:Name="dtg_NoL" HeaderText="Leg" Width="67" MappingName="Number of Leg" HeaderTextAlignment="Center"/>
@@ -30,7 +27,36 @@
                 <dtg:DataGridNumericColumn x:Name="dtg_Hs" HeaderText="Max" Width="90" MappingName="Highest score" HeaderTextAlignment="Center"/>
                 <dtg:DataGridNumericColumn x:Name="dtg_Avg" HeaderText="Avg" Width="90" MappingName="Average" HeaderTextAlignment="Center"/>
             </dtg:SfDataGrid.Columns>
-        </dtg:SfDataGrid>
+        </dtg:SfDataGrid>-->
+
+        <FlexLayout Padding="10" Margin="10">
+            <ListView x:Name="lsv_topstats" HasUnevenRows="True" RowHeight="200" >
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <StackLayout Orientation="Vertical" HorizontalOptions="Fill" Padding="10">
+                                <StackLayout>
+                                    <Label Text="Number of leg"/>
+                                    <Label Text="{Binding LegNumber}"/>
+                                </StackLayout>
+                                <StackLayout>
+                                    <Label Text="Thrown arrows"/>
+                                    <Label Text="{Binding DartsThrown}"/>
+                                </StackLayout>
+                                <StackLayout>
+                                    <Label Text="Starting score"/>
+                                    <Label Text="{Binding Score}"/>
+                                </StackLayout>
+                                <StackLayout>
+                                    <Label Text="Average score"/>
+                                    <Label Text="{Binding AverageScore}"/>
+                                </StackLayout>
+                            </StackLayout>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </FlexLayout>
 
 
     </VerticalStackLayout>

@@ -10,23 +10,24 @@ public partial class Statistics : ContentPage
 	{
 		InitializeComponent();
 		database = new DartStatDatabase();
-	}
-
-	private void Load()
-	{
-		rounds = new ObservableCollection<Round>(database.getItemsAsync().Result);
-		//TC_ta.Text = rounds.Where(x => x.DartsThrown == );
-		//TC_ta.Text = rounds.Where(x => x.DartsThrown == );
-		//TC_ta.Text = rounds.Where(x => x.DartsThrown == );
-		//TC_ta.Text = rounds.Where(x => x.DartsThrown == );
-		//TC_ta.Text = rounds.Where(x => x.DartsThrown == );
-		//TC_ta.Text = rounds.Where(x => x.DartsThrown == );
+        rounds = new ObservableCollection<Round>(database.getItemsAsync().Result);
+		lsv_stats.ItemsSource = rounds;
     }
 
+ //   private void Load()
+	//{
+	//	//TC_ta.Text = rounds.Where(x => x.DartsThrown == );
+	//	//TC_ta.Text = rounds.Where(x => x.DartsThrown == );
+	//	//TC_ta.Text = rounds.Where(x => x.DartsThrown == );
+	//	//TC_ta.Text = rounds.Where(x => x.DartsThrown == );
+	//	//TC_ta.Text = rounds.Where(x => x.DartsThrown == );
+	//	//TC_ta.Text = rounds.Where(x => x.DartsThrown == );
+ //   }
 
-    protected override void OnAppearing()
-    {
-        base.OnAppearing();
-		Load();
-    }
+
+ //   protected override void OnAppearing()
+ //   {
+ //       base.OnAppearing();
+	//	Load();
+ //   }
 }

@@ -35,7 +35,7 @@
     </ContentPage.Resources>
     
     <Grid RowDefinitions="50,150,20,*">
-        <Label Text="{Binding Practicinglegs, StringFormat='Practicing with {0} legs'}" BackgroundColor="#2D8346" FontSize="24" Margin="5,0,0,-25" TextColor="White"/>
+        <Label Text="{Binding Practicinglegs, StringFormat='Practicing with {0} legs'}" BackgroundColor="#2D8346" FontSize="24" WidthRequest="390" Margin="5,0,0,-25" TextColor="White"/>
         <Frame Grid.Row="1" BackgroundColor="Black" Padding="0" HasShadow="False" BorderColor="White" HeightRequest="100" Margin="70,60,70,30">
             <Label Text="{Binding StartingScore, Mode=TwoWay}" x:Name="score_LB" FontSize="50" TextColor="#AFE391" FontAttributes="Bold" Padding="0,0,0,10"/>
         </Frame>

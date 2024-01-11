@@ -7,7 +7,7 @@
              x:Class="Hejner_Balint_DartStat.Views.GameMode"
              Title="GameMode"
              Shell.NavBarIsVisible="False"
-             Shell.TabBarIsVisible="True"
+             Shell.TabBarIsVisible="False"
              Shell.TabBarBackgroundColor="#2D8346"
              BackgroundColor="#2D8346">
 
@@ -20,12 +20,18 @@
     </ContentPage.BindingContext>
 
 
+    
     <HorizontalStackLayout VerticalOptions="Center" HorizontalOptions="Center">
+       
         <StackLayout VerticalOptions="Center"  Spacing="50">
             <Label Text="Choose the number of legs you want to play!" TextColor="White" FontSize="16"/>
-            <Label Text="{Binding StartingScore, StringFormat='Chosen amount of starting score: {0}'}" TextColor="White" FontSize="16"/>
+            <Label Text="{Binding StartingScore, StringFormat='Chosen amount of starting score: {0}'}"  HorizontalOptions="Center" TextColor="White" FontSize="16"/>
 
             <StackLayout Orientation="Horizontal" Spacing="30" HorizontalOptions="Center">
+                <StackLayout>
+                    <ImageButton Source="house.svg" VerticalOptions="Start" x:Name="mainpage_Imgbtn" Clicked="mainpage_Imgbtn_Clicked"/>
+                    <Label TextColor="Black" HorizontalOptions="Fill" Margin="0" FontSize="12" HorizontalTextAlignment="Center" Text="Homepage" FontAttributes="Italic"/>
+                </StackLayout>
                 <cbx:SfComboBox x:Name="comboBox" SelectedItem="{Binding LegNumber}" WidthRequest="100" FontSize="18" TextColor="White" IsClearButtonVisible="False" BackgroundColor="#525050" DropDownIconColor="#AF35AE" Placeholder="Legs" PlaceholderColor="White" IsEditable="False"/>
                 <Button Text="Start" x:Name="startBtn" Command="{Binding NavigateSelectedItemtoLegLabelCommand}" CornerRadius="0" BorderColor="#555" BorderWidth="2" TextColor="Black" BackgroundColor="#AFE391" />
             </StackLayout>

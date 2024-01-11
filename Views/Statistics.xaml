@@ -41,20 +41,24 @@
                         <ViewCell>
                             <StackLayout Orientation="Vertical" HorizontalOptions="Fill" Padding="10">
                                 <StackLayout>
-                                    <Label Text="Number of leg"/>
-                                    <Label Text="{Binding LegNumber}"/>
+                                    <Label Text="Number of leg" TextColor="#B036AC" FontSize="14"/>
+                                    <Line HeightRequest="2" BackgroundColor="#555"/>
+                                    <Label Text="{Binding LegNumber}" FontSize="18"/>
                                 </StackLayout>
                                 <StackLayout>
-                                    <Label Text="Thrown arrows"/>
-                                    <Label Text="{Binding DartsThrown}"/>
+                                    <Label Text="Thrown arrows" TextColor="#B036AC" FontSize="14"/>
+                                    <Line HeightRequest="2" BackgroundColor="#555"/>
+                                    <Label Text="{Binding DartsThrown}" FontSize="18"/>
                                 </StackLayout>
                                 <StackLayout>
-                                    <Label Text="Starting score"/>
-                                    <Label Text="{Binding Score}"/>
+                                    <Label Text="Starting score" TextColor="#B036AC" FontSize="14"/>
+                                    <Line HeightRequest="2" BackgroundColor="#555"/>
+                                    <Label Text="{Binding Score}" FontSize="18"/>
                                 </StackLayout>
                                 <StackLayout>
-                                    <Label Text="Average score"/>
-                                    <Label Text="{Binding AverageScore}"/>
+                                    <Label Text="Average score" TextColor="#B036AC" FontSize="14"/>
+                                    <Line HeightRequest="2" BackgroundColor="#555"/>
+                                    <Label Text="{Binding AverageScore}"  FontSize="18"/>
                                 </StackLayout>
                             </StackLayout>
                         </ViewCell>

@@ -13,9 +13,6 @@
         <Tab Title="Main Page" Icon="house.svg">
             <ShellContent ContentTemplate="{DataTemplate local:MainPage}"/>
         </Tab>
-        <Tab Title="Latest statistics" Icon="list.svg">
-            <ShellContent ContentTemplate="{DataTemplate view:Statistics}"/>
-        </Tab>
     </TabBar>
     
     

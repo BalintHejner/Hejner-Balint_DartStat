@@ -31,7 +31,6 @@ namespace Hejner_Balint_DartStat
             builder.Services.AddSingleton<GameMode>();
             builder.Services.AddSingleton<GameModeViewModel>();
             builder.Services.AddSingleton<Toplist>();
-            builder.Services.AddSingleton<TopListViewModel>();
             builder.Services.AddSingleton<Statistics>();
             builder.Services.AddSingleton<GameMenuViewModel>();
             builder.Services.AddSingleton<GameMenu>();

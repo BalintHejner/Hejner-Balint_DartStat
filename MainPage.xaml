@@ -5,7 +5,7 @@
              xmlns:toolkit="clr-namespace:CommunityToolkit.Maui.Behaviors;assembly=CommunityToolkit.Maui"
              x:Class="Hejner_Balint_DartStat.MainPage"        
              Shell.NavBarIsVisible="False"
-             Shell.TabBarIsVisible="True"
+             Shell.TabBarIsVisible="False"
              >
 
     <ContentPage.Behaviors>

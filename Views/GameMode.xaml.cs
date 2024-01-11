@@ -17,15 +17,20 @@ public partial class GameMode : ContentPage
 		//NumberOfLegs = comboBox.SelectedIndex + 1;
 	}
 
-  //  private async void startBtn_Clicked(object sender, EventArgs e)
-  //  {
-		////if (comboBox.SelectedValue != null)
-		////{
-  ////          await Navigation.PushAsync(new GameMenu());
-		////}
-		////else
-		////{
-		////	await Shell.Current.DisplayAlert("Error!", "Please select a number!", "Okay");
-		////}
-  //  }
+    private void mainpage_Imgbtn_Clicked(object sender, EventArgs e)
+    {
+        Navigation.PushAsync(new MainPage());
+    }
+
+    //  private async void startBtn_Clicked(object sender, EventArgs e)
+    //  {
+    ////if (comboBox.SelectedValue != null)
+    ////{
+    ////          await Navigation.PushAsync(new GameMenu());
+    ////}
+    ////else
+    ////{
+    ////	await Shell.Current.DisplayAlert("Error!", "Please select a number!", "Okay");
+    ////}
+    //  }
 }

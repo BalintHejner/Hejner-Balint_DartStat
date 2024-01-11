@@ -18,11 +18,9 @@ public partial class GameMenu : ContentPage
 		database = new DartStatDatabase();
 	}
 
-    //Bind the mainpage button text to score_LB.Text - 100%!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-    //Bind the combobox selected item to legnumber label - 100%!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-    //Fill the outs dictionary and bind it with the out_LB - 99% (FU)
-    //Make the saveBtn push data into SQLite and change the text of score_LB and out_LB - 100%
-    //Make the Toplist and Statistics pull down data from the database
+    //Disappointment = Immeasurable
+    //App = Not good enough
+    //I am sorry.
 
     protected override void OnAppearing()
     {
